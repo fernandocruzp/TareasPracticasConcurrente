@@ -23,11 +23,19 @@
 
       \includegraphics[]{Fer.png}
 
+      Número de hilos de Alexys Gómez:12
+
+      \includegraphics[]{1Alexys.png}
+
     \item Revisa el programa Determinante Concurrente y responde ¿Cuánto tiempo tarda en ejecutarse?
 
       Tiempo en equipo de Fernando: 1755939 ns
 
       \includegraphics[]{Fer2.png}
+
+       Tiempo en equipo de Alexys: 2000939 ns
+
+      \includegraphics[]{2Alexys.png}
 
       
     \item El programa Determinante Concurrente está implementado extendiendo la clase Thread. Implementa el programa utilizando la interfaz Runnable.
@@ -43,8 +51,28 @@
       Programa en programas/DeterminanteDosHilos.java
       
     \item Compara las 3 implementaciones: el programa Determinante Concurrente para dos hilos, para seis hilos y el programa secuencial. Responde: ¿A qué se debe el orden en el que se ordenan los tiempos de ejecución de cada programa?
+
+    \begin{itemize}
+    \item \textbf{Secuencial:} 4518 ns
+    \item \textbf{2 Hilos:} 1996043 ns
+    \item \textbf{6 Hilos:} 1638567 ns
+    \end{itemize}
+
+    La implementación de 6 hilos es muy ineficiente porque cada hilo solo hace una multiplicación simple, pero el programa debe esperar con join() a que todos terminen para hacer las sumas. El tiempo de sincronización de hilos es mayor que hacer todas las operaciones secuencialmente.
+    Esto ocurre porque enfrentamos un problema de granularidad muy fina el trabajo por hilos es tan mínimo que el overhead de crear y sincronizar hilos supera enormemente el beneficio de la paralelización. Para operaciones computacionalmente sencillas como una matriz 3x3, la concurrencia introduce más costo que beneficio.
+
     \item Si utilizas la Ley de Amdahl entre el programa Determinante Concurrente para dos hilos y el programa secuencial. ¿El resultado es mayor o menor a 1? ¿Por qué?
+
+    \[S = \frac{T_{secuencial}}{T_{paralelo}} = \frac{4518}{1996043} \approx 0.00226\]
+
+
+    El resultado de aplicar la Ley de Amdahl es menor a 1, porque el tiempo del programa concurrente con dos hilos fue mayor que el del secuencial. Esto se debe a la sobrecarga (overhead) de manejar hilos para un problema tan pequeño.
+    
     \item Describe con tus propias palabras en máximo dos líneas para qué sirve el método \texttt{join()}. Si no utilizas el método \texttt{join()} en Determinante Concurrente, ¿sigue funcionando?
+
+    El método join() sirve para que un hilo espere a que otro termine su ejecución antes de continuar.
+    Si no se usa en Determinante Concurrente, el programa podría dar resultados incorrectos, porque el hilo principal podría intentar usar los valores antes de que los hilos terminen de calcularlos.
+    
 \end{enumerate}
 
 \end{document}
