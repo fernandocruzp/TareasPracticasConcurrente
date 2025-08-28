@@ -16,6 +16,9 @@
 
 \begin{enumerate}
     \item Lee lo siguiente \texttt{https://www.evanjones.ca/software/threading-linus-msg.html} y comparte en máximo 4 líneas de computadora a qué se refiere Linus Torvalds con un contexto de ejecución y cómo se relaciona con la definición en la sección 1 de esta práctica.
+
+    Linus explica que un contexto de ejecución es todo lo que necesita un hilo o proceso para ejecutarse: su stack, registros y estado. Se relaciona con la definición de la práctica porque ahí se habla de los hilos como “un flujo de control con su propio contexto de ejecución” que permite correr varias tareas en paralelo
+    
     \item ¿Cuántos hilos tiene disponibles tu computadora? \\
       Ejecuta \texttt{Runtime.getRuntime().availableProcessors()}, si son más de uno en el equipo escriban el de cada uno.
 
@@ -27,6 +30,11 @@
 
       \includegraphics[]{1Alexys.png}
 
+      Número de hilos de Moises:16
+
+      \includegraphics[]{ProcesadoresLogicos_Moises_Corpus_Garcia.png}
+
+
     \item Revisa el programa Determinante Concurrente y responde ¿Cuánto tiempo tarda en ejecutarse?
 
       Tiempo en equipo de Fernando: 1755939 ns
@@ -36,6 +44,10 @@
        Tiempo en equipo de Alexys: 2000939 ns
 
       \includegraphics[]{2Alexys.png}
+
+             Tiempo en equipo de Moises: 570900 ns
+
+      \includegraphics[]{DeterminanteConcurrente_Moises_Corpus_Garcia.png}
 
       
     \item El programa Determinante Concurrente está implementado extendiendo la clase Thread. Implementa el programa utilizando la interfaz Runnable.
