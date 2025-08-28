@@ -30,6 +30,12 @@
 
       \includegraphics[]{1Alexys.png}
 
+<<<<<<< HEAD
+=======
+      Número de hilos de Moisés Corpus: 16
+
+      \includegraphics[]{ProcesadoresLogicos_Moises_Corpus_Garcia.png}
+>>>>>>> 6bd59094f9a3f04e6f6eb8d05cf62b2b6e89bf9e
 
     \item Revisa el programa Determinante Concurrente y responde ¿Cuánto tiempo tarda en ejecutarse?
 
@@ -37,23 +43,34 @@
 
       \includegraphics[]{Fer2.png}
 
-       Tiempo en equipo de Alexys: 2000939 ns
+      Tiempo en equipo de Alexys: 2000939 ns
 
       \includegraphics[]{2Alexys.png}
+
+      Tiempo en equipo de Moises: 570900 ns
+
+      \includegraphics[]{DeterminanteConcurrente_Moises_Corpus_Garcia.png}
 
       
     \item El programa Determinante Concurrente está implementado extendiendo la clase Thread. Implementa el programa utilizando la interfaz Runnable.
 
       Programa en programas/DeterminanteConcurrenteRunnable.java
+
+      Este programa tiene la misma lógica que el que extiende de la clase Thread, pues son 6 hilos que usando la regla de Sarrus calcula el determinante. La diferencia principal es que la lógica del cálculo se separa de la gestión de los hilos.
       
     \item Implementa el programa Determinante Concurrente de forma secuencial.
       
       Programa en programas/DeterminanteSecuencial.java
-      
+
+      Este programa calcula el determinante de una matriz 3x3 de forma secuencial, 
+aplicando directamente la regla de Sarrus.  No utiliza hilos, por lo que todo el cálculo se hace en un único flujo de ejecución. 
     \item Implementa el programa Determinante Concurrente para dos hilos (en vez de seis).
 
       Programa en programas/DeterminanteDosHilos.java
-      
+
+      Este programa utiliza dos hilos para dividir el cálculo del determinante: 
+un hilo calcula la suma de las diagonales positivas y otro la de las negativas, 
+y luego se obtiene el resultado restando ambas sumas parciales.
     \item Compara las 3 implementaciones: el programa Determinante Concurrente para dos hilos, para seis hilos y el programa secuencial. Responde: ¿A qué se debe el orden en el que se ordenan los tiempos de ejecución de cada programa?
 
     \begin{itemize}
